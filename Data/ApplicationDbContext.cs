@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Suzy.Models;
 
 namespace Suzy.Data
 {
@@ -9,5 +10,7 @@ namespace Suzy.Data
             : base(options)
         {
         }
+
+        public DbSet<Note> Notes { get; set; } = null!;
     }
 }

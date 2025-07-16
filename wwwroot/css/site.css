@@ -102,12 +102,17 @@ select,
   background-color: var(--color-light);
   color: var(--text-color);
   border: 1px solid var(--color-border);
-  transition: 0.2s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 input::placeholder,
 textarea::placeholder {
   color: #888;
+}
+
+body.theme-dark input::placeholder,
+body.theme-dark textarea::placeholder {
+  color: #aaa;
 }
 
 /* === Buttons === */
@@ -122,14 +127,16 @@ textarea::placeholder {
   background-color: #000;
 }
 
+/* === Outline Buttons === */
 .btn-outline-primary {
-  color: var(--color-dark);
-  border-color: var(--color-border);
+  border-color: var(--color-accent);
+  color: var(--color-accent);
 }
 
 .btn-outline-primary:hover {
-  background-color: var(--color-dark);
+  background-color: var(--color-accent);
   color: white;
+  border-color: var(--color-accent);
 }
 
 /* === Alert Boxes === */
@@ -155,26 +162,6 @@ textarea::placeholder {
   background-color: var(--color-gray);
   color: var(--color-accent);
 }
-/* === Input Fields === */
-input,
-textarea,
-select,
-.form-control {
-  background-color: var(--color-light);
-  color: var(--text-color);
-  border: 1px solid var(--color-border);
-  transition: background-color 0.2s ease, color 0.2s ease;
-}
-
-input::placeholder,
-textarea::placeholder {
-  color: #888;
-}
-
-body.theme-dark input::placeholder,
-body.theme-dark textarea::placeholder {
-  color: #aaa;
-}
 
 /* === Fix for Search Button Outline === */
 .btn-outline-primary {
@@ -187,3 +174,44 @@ body.theme-dark textarea::placeholder {
   color: white;
   border-color: var(--color-accent);
 }
+
+/* === Custom Upload Button (Base) === */
+.upload-btn {
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Light Mode */
+body:not(.theme-dark) .upload-btn {
+  background-color: #000;
+  color: #fff; /* White text */
+  border: 1px solid #000;
+}
+
+/* Dark Mode */
+body.theme-dark .upload-btn {
+  background-color: var(--bg-main);
+  color: #fff; /* White text */
+  border: 1px solid #000;
+}
+
+/* === Auth Button Base === */
+.auth-btn {
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+/* Light Mode */
+body:not(.theme-dark) .auth-btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+}
+
+/* Dark Mode */
+body.theme-dark .auth-btn {
+  background-color: var(--bg-main);
+  color: #fff;
+  border: 1px solid #000;
+}
+
